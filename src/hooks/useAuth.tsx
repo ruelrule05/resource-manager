@@ -92,7 +92,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     try {
-      const response = await fetch(API_URI + "/auth/refresh-token", {
+      const response = await fetch(API_URI + "/auth/refresh", {
         method: "POST",
         headers: {
           'Authorization': `Bearer ${token}`,

@@ -10,7 +10,6 @@ export function RegistrationForm() {
   const [error, setError] = useState<string|null>(null);
 
   const navigate = useNavigate();
-  // const { login } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -57,7 +56,7 @@ export function RegistrationForm() {
 
           { error && <p className="text-red-500 mb-4">{error}</p> }
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form noValidate onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">Name:</label>
               <input type="text" className="shadow border rounded w-full py-2 px-3 text-gray-700"
