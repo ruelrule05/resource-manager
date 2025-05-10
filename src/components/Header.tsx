@@ -1,5 +1,3 @@
-import {useEffect} from "react";
-import {HSStaticMethods} from "flyonui/flyonui";
 import {Link} from "react-router";
 import {useAuth} from "../hooks/useAuth.tsx";
 
