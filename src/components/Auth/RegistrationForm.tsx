@@ -10,7 +10,6 @@ export function RegistrationForm() {
   const [error, setError] = useState<string|null>(null);
 
   const navigate = useNavigate();
-  // const { login } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

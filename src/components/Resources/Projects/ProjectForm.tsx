@@ -14,7 +14,7 @@ interface Project {
 }
 
 function ResourceForm() {
-  const { id } = useParams<{ id?: string }>(); // Get the project ID from the route params
+  const { id } = useParams<{ id?: string }>();
   const navigate = useNavigate();
 
   const [name, setName] = useState('');
@@ -36,7 +36,7 @@ function ResourceForm() {
 
   const formatDateForInput = (date: Date): string => {
     const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
+    const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
     return `${year}-${month}-${day}`;
   };
@@ -53,7 +53,7 @@ function ResourceForm() {
       });
 
       if (response.ok) {
-        const { data } = await response.json();
+        const { data }: { data: Project } = await response.json();
         setName(data.name);
         setDescription(data.description || '');
         setStatus(data.status);

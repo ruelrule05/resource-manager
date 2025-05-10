@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { API_URI } from "../../../lib/constants.ts";
 import {Link, useLocation, useNavigate} from "react-router";
+import DeleteProject from "./DeleteProject.tsx";
 
 interface Resource {
   id: number;
@@ -46,7 +47,7 @@ export function ProjectList() {
   const location = useLocation();
 
   const fetchResources = useCallback(async () => {
-    controller?.abort(); // Abort any ongoing request
+    controller?.abort();
     controller = new AbortController();
     const signal = controller.signal;
 
@@ -99,13 +100,13 @@ export function ProjectList() {
   }, [page, perPage, sortBy, sortDirection, filters, search]);
 
   useEffect(() => {
-    const delayTimeoutId = setTimeout(fetchResources, 300); // Fetch after 300ms of no typing
+    const delayTimeoutId = setTimeout(fetchResources, 300);
 
     return () => {
-      clearTimeout(delayTimeoutId); // Clear the timeout if the component unmounts or search changes quickly
-      controller?.abort(); // Abort any ongoing fetch on cleanup
+      clearTimeout(delayTimeoutId);
+      controller?.abort();
     };
-  }, [fetchResources, search]); // Only re-run when fetchResources or search changes
+  }, [fetchResources, search]);
 
   const handleSort = (column: string) => {
     if (sortBy === column) {
@@ -129,7 +130,7 @@ export function ProjectList() {
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
-    setPage(1); // Reset page immediately on search input
+    setPage(1);
   };
 
   const handlePageChange = (newPage: number) => {
@@ -249,10 +250,7 @@ export function ProjectList() {
                           onClick={() => handleEdit(resource.id)}
                         ></span>
                         </button>
-                        <button className="btn btn-circle btn-text btn-sm"
-                                aria-label="Action button"><span
-                          className="icon-[tabler--trash] size-5"></span>
-                        </button>
+                        <DeleteProject projectId={resource.id} onProjectDeleted={fetchResources} />
                       </td>
                     </tr>
                   ))}
