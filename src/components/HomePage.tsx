@@ -1,7 +1,10 @@
 import {Link} from "react-router";
 import {Header} from "./Header.tsx";
+import {useAuth} from "../hooks/useAuth.tsx";
 
 function HomePage() {
+  const { isAuthenticated } = useAuth();
+
   return (
     <>
       <Header />
@@ -12,10 +15,16 @@ function HomePage() {
             Resource Management
           </h1>
 
-          <div className="space-x-4">
-            <Link to="/login" className="">Login</Link>
-            <Link to="/register" className="">Register</Link>
-          </div>
+          { !isAuthenticated ? (
+            <div className="space-x-4">
+              <Link to="/login" className="">Login</Link>
+              <Link to="/register" className="">Register</Link>
+            </div>
+          ) : (
+            <div>
+              <Link to="/dashboard" className="btn btn-primary">Go to Dashboard</Link>
+            </div>
+          )}
         </div>
       </div>
     </>
