@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { API_URI } from "../../../lib/constants.ts";
 import {Link, useLocation, useNavigate} from "react-router";
 
@@ -116,6 +116,10 @@ export function ProjectList() {
     }
     setPage(1);
   };
+
+  const handleEdit = (id: number) => {
+    navigate(`/projects/${id}/edit`);
+  }
 
   const handleFilterChange = (field: string, value: string) => {
     setFilters({...filters, [field]: value});
@@ -241,7 +245,9 @@ export function ProjectList() {
                       <td>
                         <button className="btn btn-circle btn-text btn-sm"
                                 aria-label="Action button"><span
-                          className="icon-[tabler--pencil] size-5"></span>
+                          className="icon-[tabler--pencil] size-5"
+                          onClick={() => handleEdit(resource.id)}
+                        ></span>
                         </button>
                         <button className="btn btn-circle btn-text btn-sm"
                                 aria-label="Action button"><span
