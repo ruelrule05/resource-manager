@@ -1,54 +1,44 @@
-# React + TypeScript + Vite
+# Resource Manager - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This is the React frontend for the Resource Management Dashboard, built using Vite and FlyonUI. It consumes the backend API to provide a user interface for managing resources (Projects), handling authentication, and displaying data.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Public Repository
 
-## Expanding the ESLint configuration
+[Link to your frontend repository: https://github.com/ruelrule05/resource-manager](https://github.com/ruelrule05/resource-manager)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Setup Instructions
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1.  **Clone the Frontend Repository:**
+    ```bash
+    git clone [https://github.com/ruelrule05/resource-manager.git](https://github.com/ruelrule05/resource-manager.git)
+    cd resource-manager
+    ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2.  **Install Dependencies:**
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+3.  **Configure API endpoint:**
+    Open the `src/lib/constants.ts` file and update the API endpoint if necessary. You can see the endpoint URI from sail.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+
+4.  **Start the Development Server:**
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
+    The frontend application will be accessible at `http://localhost:5173` (or the port Vite assigns). Ensure your backend API is running and accessible at the configured URL.
+
+## Technologies Used
+
+* React
+* Vite
+* React Router DOM
+* FlyonUI
+* TypeScript
