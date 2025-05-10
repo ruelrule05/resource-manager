@@ -10,7 +10,8 @@ import AuthenticatedLayout from "./layouts/AuthenticatedLayout.tsx";
 import RedirectIfAuthenticated from "./layouts/RedirectIfAuthenticated.tsx";
 import {ProjectList} from "./components/Resources/Projects/ProjectList.tsx";
 import ProjectForm from "./components/Resources/Projects/ProjectForm.tsx";
-import AboutUs from "./components/AboutUs/AboutUs.tsx";
+import AboutUs from "./components/AboutUs.tsx";
+import ContactUs from "./components/ContactUs.tsx";
 
 async function loadFlyonUI() {
   return import("flyonui/flyonui");
@@ -42,6 +43,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
 
           <Route element={<RedirectIfAuthenticated />}>
             <Route path="/login" element={<LoginForm />} />
