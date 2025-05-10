@@ -1,4 +1,4 @@
-import {useLocation} from "react-router-dom";
+import {useLocation} from "react-router";
 import {useAuth} from "../hooks/useAuth.tsx";
 import {Navigate, Outlet} from "react-router";
 

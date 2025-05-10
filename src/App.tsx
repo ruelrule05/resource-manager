@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import './App.css'
 import {AuthProvider} from "./hooks/useAuth.tsx";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router";
 import HomePage from "./components/HomePage.tsx";
 import DashboardView from "./components/Dashboard/DashboardView.tsx";
 import LoginForm from "./components/Auth/LoginForm.tsx";
@@ -37,10 +37,6 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          {/*<Route path="/" element={<HomePage />} />*/}
-          {/*<Route path="/dashboard" element={<DashboardView />} />*/}
-          {/*<Route path="/login" element={<LoginForm />} />*/}
-          {/*<Route path="/register" element={<RegistrationForm />} />*/}
           <Route path="/" element={<HomePage />} />
 
           <Route element={<RedirectIfAuthenticated />}>

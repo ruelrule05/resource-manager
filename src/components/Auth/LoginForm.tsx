@@ -29,9 +29,9 @@ function LoginForm () {
       })
 
       if (response.ok) {
-        const { access_token } = await response.json();
+        const { access_token, expires_in } = await response.json();
 
-        login(access_token);
+        login(access_token, expires_in);
 
         navigate(location.state?.from?.pathname || '/dashboard')
       } else {
