@@ -1,33 +1,44 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+async function loadFlyonUI() {
+  return import("flyonui/flyonui");
+}
+
 function App() {
-  const [count, setCount] = useState(0)
+  useEffect(() => {
+    const initFlyonUI = async () => {
+      await loadFlyonUI();
+    }
+
+    initFlyonUI();
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (
+        window.HSStaticMethods &&
+        typeof window.HSStaticMethods.autoInit === 'function'
+      ) {
+        window.HSStaticMethods.autoInit();
+      }
+    }, 100);
+  }, [location.pathname]);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1 className="font-bold">Hello world!</h1>
+      <button className="btn btn-soft">Click me</button>
+      <button className="btn">Default</button>
+      <button className="btn btn-primary">Primary</button>
+      <button className="btn btn-secondary">Secondary</button>
+      <button className="btn btn-accent">Accent</button>
+      <button className="btn btn-info">Info</button>
+      <button className="btn btn-success">Success</button>
+      <button className="btn btn-warning">Warning</button>
+      <button className="btn btn-error">Error</button>
     </>
   )
 }
