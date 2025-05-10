@@ -1,7 +1,13 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { useEffect } from 'react'
 import './App.css'
+import {AuthProvider} from "./hooks/useAuth.tsx";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import HomePage from "./components/HomePage.tsx";
+import DashboardView from "./components/Dashboard/DashboardView.tsx";
+import LoginForm from "./components/Auth/LoginForm.tsx";
+import {RegistrationForm} from "./components/Auth/RegistrationForm.tsx";
+import AuthenticatedLayout from "./layouts/AuthenticatedLayout.tsx";
+import RedirectIfAuthenticated from "./layouts/RedirectIfAuthenticated.tsx";
 
 async function loadFlyonUI() {
   return import("flyonui/flyonui");
@@ -28,18 +34,26 @@ function App() {
   }, [location.pathname]);
 
   return (
-    <>
-      <h1 className="font-bold">Hello world!</h1>
-      <button className="btn btn-soft">Click me</button>
-      <button className="btn">Default</button>
-      <button className="btn btn-primary">Primary</button>
-      <button className="btn btn-secondary">Secondary</button>
-      <button className="btn btn-accent">Accent</button>
-      <button className="btn btn-info">Info</button>
-      <button className="btn btn-success">Success</button>
-      <button className="btn btn-warning">Warning</button>
-      <button className="btn btn-error">Error</button>
-    </>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          {/*<Route path="/" element={<HomePage />} />*/}
+          {/*<Route path="/dashboard" element={<DashboardView />} />*/}
+          {/*<Route path="/login" element={<LoginForm />} />*/}
+          {/*<Route path="/register" element={<RegistrationForm />} />*/}
+          <Route path="/" element={<HomePage />} />
+
+          <Route element={<RedirectIfAuthenticated />}>
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/register" element={<RegistrationForm />} />
+          </Route>
+
+          <Route element={<AuthenticatedLayout />}>
+            <Route path="/dashboard" element={<DashboardView />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
 
