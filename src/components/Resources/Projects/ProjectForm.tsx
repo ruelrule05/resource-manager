@@ -118,7 +118,7 @@ function ResourceForm() {
           Loading project data...
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-4 max-w-lg">
+        <form noValidate onSubmit={handleSubmit} className="space-y-4 max-w-lg">
           <div>
             <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">Name:</label>
             <input

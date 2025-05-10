@@ -52,7 +52,7 @@ function LoginForm () {
 
           {error && <p className="text-red-500 mb-4">{error}</p>}
 
-          <form onSubmit={handleLogin} className="space-y-4">
+          <form noValidate onSubmit={handleLogin} className="space-y-4">
             <div>
               <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email:</label>
               <input type="email" className="shadow border rounded w-full py-2 px-3 text-gray-700"
