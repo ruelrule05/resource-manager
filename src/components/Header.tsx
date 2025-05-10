@@ -34,14 +34,13 @@ export function Header() {
             <ul
               className="menu md:menu-horizontal gap-4 p-0 text-base max-md:mt-2 flex items-center justify-evenly">
               <Link to="/" className="hover:text-primary">Home</Link>
-              <Link to="/about" className="hover:text-primary">About Us</Link>
+              <Link to="/about-us" className="hover:text-primary">About Us</Link>
               <Link to="/contact-us" className="hover:text-primary">Contact Us</Link>
               { isAuthenticated && (
                 <>
                   <Link to="/projects" className="hover:text-primary">Projects</Link>
-                  <Link to="/tasks" className="hover:text-primary">Tasks</Link>
-                  <Link to="/inventory" className="hover:text-primary">Inventory</Link>
-                  <Link to="/projects" className="hover:text-primary">Projects</Link>
+                  {/*<Link to="/tasks" className="hover:text-primary">Tasks</Link>*/}
+                  {/*<Link to="/inventory" className="hover:text-primary">Inventory</Link>*/}
                   <a href="#" onClick={() => logout()}>Logout</a>
                 </>
               )}
