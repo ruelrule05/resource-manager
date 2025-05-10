@@ -1,4 +1,31 @@
 @import "tailwindcss";
 @plugin "flyonui";
+@plugin "flyonui/theme" {
+    name: "maintheme";
+    default: true;
+    prefersdark: true;
+    color-scheme: light;
+
+    --color-base-100: oklch(98.8% 0.0069 304.24);
+    --color-base-200: oklch(90.02% 0.0364 308.84);
+    --color-base-300: oklch(88.09% 0.0421 307.21);
+    --color-base-content: oklch(32.61% 0.0705 305.29);
+    --color-primary: oklch(0.679 0.161 246.987);
+    --color-primary-content: oklch(94.64% 0.0327 307.17);
+    --color-secondary: oklch(66.8% 0.0184 304.67);
+    --color-accent: oklch(71.37% 0.1434 254.62);
+    --color-accent-content: oklch(89.94% 0.0589 343.23);
+    --color-neutral: oklch(32.61% 0.0705 305.29);
+    --color-neutral-content: oklch(99.54% 0.0028 308.43);
+    --color-info: oklch(79.71% 0.1339 211.53);
+    --color-info-content: oklch(95.63% 0.0443 203.39);
+    --color-success: oklch(77.29% 0.1535 163.22);
+    --color-success-content: oklch(95.05% 0.0507 163.05);
+    --color-warning: oklch(75.76% 0.159 55.93);
+    --color-warning-content: oklch(95.42% 0.03715446392304164 75.16435946755645);
+    --color-error: oklch(75.88% 0.1385 31.29);
+    --color-error-content: oklch(97.58% 0.0151 61.35);
+}
 @import "flyonui/variants.css";
 @source "./node_modules/flyonui/flyonui.js";
+@plugin "@iconify/tailwind4";

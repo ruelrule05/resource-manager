@@ -1,6 +1,7 @@
 import {useLocation} from "react-router";
 import {useAuth} from "../hooks/useAuth.tsx";
 import {Navigate, Outlet} from "react-router";
+import {Header} from "../components/Header.tsx";
 
 const AuthenticatedLayout = () => {
   const { isAuthenticated, isLoading } = useAuth();
@@ -20,7 +21,12 @@ const AuthenticatedLayout = () => {
   }
 
   return (
-    <Outlet />
+    <div className="max-w-full">
+      <Header />
+      <div className="p-4">
+        <Outlet />
+      </div>
+    </div>
   );
 }
 

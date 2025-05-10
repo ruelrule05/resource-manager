@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 
-function ResourceForm() {
+function ProjectForm() {
   const { id } = useParams();
 
   return (
@@ -10,4 +10,4 @@ function ResourceForm() {
   );
 }
 
-export default ResourceForm;
+export default ProjectForm;
