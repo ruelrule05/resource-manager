@@ -39,7 +39,7 @@ export function Header() {
               { isAuthenticated && (
                 <>
                   <Link to="/projects" className="hover:text-primary">Projects</Link>
-                  {/*<Link to="/tasks" className="hover:text-primary">Tasks</Link>*/}
+                  <Link to="/tasks" className="hover:text-primary">Tasks</Link>
                   {/*<Link to="/inventory" className="hover:text-primary">Inventory</Link>*/}
                   <a href="#" onClick={() => logout()}>Logout</a>
                 </>

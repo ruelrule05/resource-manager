@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { API_URI } from "../../../lib/constants.ts";
 import {Link, useLocation, useNavigate} from "react-router";
 import DeleteProject from "./DeleteProject.tsx";
+import type {ApiResponse, PageMeta} from "../../../interfaces/ApiResponse.ts";
 
 interface Resource {
   id: number;
@@ -12,22 +13,6 @@ interface Resource {
   end_date?: string;
   created_at: string;
   updated_at: string;
-}
-
-interface ApiResponse {
-  data: Resource[];
-  links: any;
-  meta: PageMeta
-}
-
-interface PageMeta {
-  current_page: number;
-  from: number;
-  last_page: number;
-  path: string;
-  per_page: number;
-  to: number;
-  total: number;
 }
 
 let controller: AbortController;
