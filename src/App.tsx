@@ -14,6 +14,8 @@ import AboutUs from "./components/AboutUs.tsx";
 import ContactUs from "./components/ContactUs.tsx";
 import TaskList from "./components/Resources/Tasks/TaskList.tsx";
 import TaskForm from "./components/Resources/Tasks/TaskForm.tsx";
+import InventoryItemList from "./components/Resources/InventoryItems/InventoryItemList.tsx";
+import InventoryItemForm from "./components/Resources/InventoryItems/InventoryItemForm.tsx";
 
 async function loadFlyonUI() {
   return import("flyonui/flyonui");
@@ -62,6 +64,10 @@ function App() {
             <Route path="/tasks" element={<TaskList />} />
             <Route path="/tasks/create" element={<TaskForm />} />
             <Route path="/tasks/:id/edit" element={<TaskForm />} />
+
+            <Route path="/inventory-items" element={<InventoryItemList />} />
+            <Route path="/inventory-items/create" element={<InventoryItemForm />} />
+            <Route path="/inventory-items/:id/edit" element={<InventoryItemForm />} />
           </Route>
         </Routes>
       </BrowserRouter>
