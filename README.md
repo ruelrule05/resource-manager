@@ -6,7 +6,7 @@ This is the React frontend for the Resource Management Dashboard, built using Vi
 
 ## Public Repository
 
-[Link to your frontend repository: https://github.com/ruelrule05/resource-manager](https://github.com/ruelrule05/resource-manager)
+[Resource Manager - Frontend](https://github.com/ruelrule05/resource-manager)
 
 ## Setup Instructions
 
