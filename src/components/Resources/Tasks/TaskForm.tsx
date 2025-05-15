@@ -78,12 +78,15 @@ const TaskForm: React.FC = () => {
       });
 
       if (response.ok) {
-        const taskData: Task = await response.json();
+        const details = await response.json();
+        const taskData: Task = details.data;
+
+        console.log({ taskData })
         setTitle(taskData.title);
         setDescription(taskData.description || '');
         setStatus(taskData.status);
-        setProjectId(taskData.project_id);
-        setDueDate(taskData.due_date || undefined);
+        setProjectId(taskData.project?.id);
+        setDueDate(taskData.due_date ? taskData.due_date.split('T')[0] : undefined);
       } else {
         const errorData = await response.json();
         setError(errorData.message || 'Failed to fetch task data');

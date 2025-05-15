@@ -18,7 +18,7 @@ interface Task {
 
 let controller: AbortController;
 
-const TaskList: React.FC = () => {
+const TaskList = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -97,7 +97,7 @@ const TaskList: React.FC = () => {
       clearTimeout(delayTimeoutId);
       controller?.abort();
     };
-  }, [fetchTasks, search, location.search]);
+  }, [search, location.search]);
 
   const handleSort = (column: string) => {
     const newDirection = sortBy === column && sortDirection === 'asc' ? 'desc' : 'asc';
@@ -236,7 +236,7 @@ const TaskList: React.FC = () => {
                       className={`badge badge-soft text-xs capitalize ${getStatusBadgeClass(task.status)}`}
                     >{task.status}</span></td>
                     <td>{task.project?.name}</td>
-                    <td>{task.due_date}</td>
+                    <td>{task.due_date?.split('T')[0]}</td>
                     <td>
                       <button className="btn btn-circle btn-text btn-sm"
                               aria-label="Edit"
