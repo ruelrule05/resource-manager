@@ -12,6 +12,8 @@ import {ProjectList} from "./components/Resources/Projects/ProjectList.tsx";
 import ProjectForm from "./components/Resources/Projects/ProjectForm.tsx";
 import AboutUs from "./components/AboutUs.tsx";
 import ContactUs from "./components/ContactUs.tsx";
+import TaskList from "./components/Resources/Tasks/TaskList.tsx";
+import TaskForm from "./components/Resources/Tasks/TaskForm.tsx";
 
 async function loadFlyonUI() {
   return import("flyonui/flyonui");
@@ -56,6 +58,10 @@ function App() {
             <Route path="/projects" element={<ProjectList />} />
             <Route path="/projects/create" element={<ProjectForm />} />
             <Route path="/projects/:id/edit" element={<ProjectForm />} />
+
+            <Route path="/tasks" element={<TaskList />} />
+            <Route path="/tasks/create" element={<TaskForm />} />
+            <Route path="/tasks/:id/edit" element={<TaskForm />} />
           </Route>
         </Routes>
       </BrowserRouter>
