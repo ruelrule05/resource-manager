@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router';
 import { API_URI } from '../../../lib/constants';
 import type {ApiResponse} from "../../../interfaces/ApiResponse.ts";
+import DeleteTask from "./DeleteTask.tsx";
 // import DeleteProject from "../Projects/DeleteProject.tsx";
 
 interface Task {
@@ -243,7 +244,7 @@ const TaskList = () => {
                               onClick={() => handleEdit(task.id)}
                       ><span className="icon-[tabler--pencil] size-5"></span>
                       </button>
-                      {/*<DeleteProject projectId={task.id} onProjectDeleted={fetchTasks} />*/}
+                      <DeleteTask taskId={task.id} onTaskDeleted={fetchTasks} />
                     </td>
                   </tr>
                 ))}
