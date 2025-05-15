@@ -12,7 +12,7 @@ This is the React frontend for the Resource Management Dashboard, built using Vi
 
 1.  **Clone the Frontend Repository:**
     ```bash
-    git clone [https://github.com/ruelrule05/resource-manager.git](https://github.com/ruelrule05/resource-manager.git)
+    git clone https://github.com/ruelrule05/resource-manager.git
     cd resource-manager
     ```
 
@@ -39,6 +39,6 @@ This is the React frontend for the Resource Management Dashboard, built using Vi
 
 * React
 * Vite
-* React Router DOM
+* React Router
 * FlyonUI
 * TypeScript
